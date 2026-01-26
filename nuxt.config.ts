@@ -86,8 +86,5 @@ export default defineNuxtConfig({
 
   robots: {
     blockNonSeoBots: true
-  },
-
-  sitemap: {
   }
 })
