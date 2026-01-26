@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.86",
+    "@iconify-json/simple-icons": "^1.2.67",
+    "@iconify-json/vscode-icons": "^1.2.40",
+    "@nuxt/content": "^3.11.0",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxt/image": "^1.11.0",
+    "@nuxt/ui": "^4.4.0",
+    "@nuxtjs/robots": "^5.6.7",
+    "@nuxtjs/sitemap": "^7.5.2",
+    "@vueuse/nuxt": "13.9.0",
+    "better-sqlite3": "^12.6.2",
+    "nuxt": "^4.3.0",
+    "nuxt-og-image": "^5.1.13",
+    "vue": "^3.5.27"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.13.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "3.6.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.4"
+  },
+  "name": "nuxt-ui-template-docs",
+  "packageManager": "pnpm@10.28.1",
+  "private": true,
+  "resolutions": {
+    "unimport": "4.1.1"
+  },
+  "scripts": {
+    "build": "nuxt generate --preset github_pages",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "lint": "eslint .",
+    "postinstall": "nuxt prepare",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck"
+  },
+  "type": "module"
+}
