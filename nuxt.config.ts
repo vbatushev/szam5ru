@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: 'https://szam5.com',
+    url: 'https://szam5.ru',
     name: 'sZam5 — Adobe InDesign script'
   },
 
