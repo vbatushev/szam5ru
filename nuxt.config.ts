@@ -1,9 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-
   appId: 'szam5-site',
   modules: [
-    '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/content',
@@ -11,80 +9,62 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/fonts',
     '@nuxtjs/robots',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
   ],
-
-  ssr: true,
-
+  ssr: false,
   devtools: {
-    enabled: true
+    enabled: true,
   },
-
   app: {
+    baseURL: '/',
     head: {
-      title: 'sZam5 — Adobe InDesign script'
-    }
+      title: 'sZam5 — Adobe InDesign script',
+      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      link: [{ rel: 'icon', href: '/favicon.ico' }],
+      htmlAttrs: {
+        lang: 'ru',
+      },
+    },
   },
-
   css: ['~/assets/css/main.css'],
-
   site: {
     url: 'https://szam5.ru',
-    name: 'sZam5 — Adobe InDesign script'
+    name: 'sZam5 — Adobe InDesign script',
   },
-
   content: {
     build: {
       markdown: {
         toc: {
-          searchDepth: 1
-        }
-      }
-    }
+          searchDepth: 1,
+        },
+      },
+    },
   },
 
-  devServer: {
-    // port: 8090,
-  },
+  compatibilityDate: '2026-03-03',
 
-  compatibilityDate: '2024-07-11',
-
-  nitro: {
-    preset: 'static',
-    prerender: {
-      routes: ['/'],
-      crawlLinks: true,
-      autoSubfolderIndex: true
-    }
-    // output: {
-    //   publicDir: './dist'
-    // }
-  },
-
-  eslint: {
-    config: {
-      stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
+  postcss: {
+    plugins: {
+      'autoprefixer': {},
+      'postcss-nested': {},
+      'cssnano': {},
+      '@tailwindcss/postcss': {},
+    },
   },
 
   fonts: {
-    families: [
-      { name: 'Inter', provider: 'google', weights: [100, 400, 500, 600, 700, 800, 900] }
-    ]
+    families: [{ name: 'Inter', provider: 'google', weights: [100, 400, 500, 600, 700, 800, 900] }],
   },
 
   icon: {
-    provider: 'iconify'
+    provider: 'iconify',
   },
 
   ogImage: {
-    enabled: false
+    enabled: false,
   },
 
   robots: {
-    blockNonSeoBots: true
-  }
+    blockNonSeoBots: true,
+  },
 })

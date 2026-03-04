@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "bracketSameLine": true,
+  "embeddedLanguageFormatting": "auto",
+  "insertFinalNewline": true,
+  "printWidth": 100,
+  "quoteProps": "consistent",
+  "semi": false,
+  "singleQuote": true,
+  "sortImports": {
+    "ignoreCase": true,
+    "order": "asc"
+  },
+  "sortPackageJson": true,
+  "sortTailwindcss": {
+    "attributes": []
+  },
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "ignorePatterns": [
+    "kubernetes/**",
+    "docker/**",
+    "public/**",
+    ".git/**",
+    "src/**/*.js",
+    "src/**/*.json",
+    "src/**/*.d.ts"
+  ]
+}

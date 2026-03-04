@@ -18,28 +18,28 @@ const items = [
       copy(mdPath.value)
       toast.add({
         title: 'Copied to clipboard',
-        icon: 'i-lucide-check-circle'
+        icon: 'i-lucide-check-circle',
       })
-    }
+    },
   },
   {
     label: 'View as Markdown',
     icon: 'i-simple-icons:markdown',
     target: '_blank',
-    to: `/raw${route.path}.md`
+    to: `/raw${route.path}.md`,
   },
   {
     label: 'Open in ChatGPT',
     icon: 'i-simple-icons:openai',
     target: '_blank',
-    to: `https://chatgpt.com/?hints=search&q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
+    to: `https://chatgpt.com/?hints=search&q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`,
   },
   {
     label: 'Open in Claude',
     icon: 'i-simple-icons:anthropic',
     target: '_blank',
-    to: `https://claude.ai/new?q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`
-  }
+    to: `https://claude.ai/new?q=${encodeURIComponent(`Read ${mdPath.value} so I can ask questions about it.`)}`,
+  },
 ]
 
 async function copyPage() {
@@ -58,27 +58,20 @@ async function copyPage() {
       variant="outline"
       :loading="isCopying"
       :ui="{
-        leadingIcon: [copied ? 'text-primary' : 'text-neutral', 'size-3.5']
+        leadingIcon: [copied ? 'text-primary' : 'text-neutral', 'size-3.5'],
       }"
-      @click="copyPage"
-    />
+      @click="copyPage" />
     <UDropdownMenu
       :items="items"
       :content="{
         align: 'end',
         side: 'bottom',
-        sideOffset: 8
+        sideOffset: 8,
       }"
       :ui="{
-        content: 'w-48'
-      }"
-    >
-      <UButton
-        icon="i-lucide-chevron-down"
-        size="sm"
-        color="neutral"
-        variant="outline"
-      />
+        content: 'w-48',
+      }">
+      <UButton icon="i-lucide-chevron-down" size="sm" color="neutral" variant="outline" />
     </UDropdownMenu>
   </UButtonGroup>
 </template>

@@ -1,0 +1,102 @@
+{
+  "ignorePatterns": ["*.js", "node_modules/**/*", "*.d.ts"],
+  "plugins": ["typescript", "oxc", "vue"],
+  "categories": {
+    "correctness": "error",
+    "nursery": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "restriction": "error",
+    "style": "error",
+    "suspicious": "error"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts", "*.vue", "!*.d.ts"],
+      "rules": {
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        "max-depth": ["error", 4],
+        "max-statements": "off",
+        "max-lines": "off",
+        "max-nested-callbacks": ["error", 3],
+        "max-params": ["error", 7],
+        "no-console": "off",
+        "no-debugger": "off",
+        "no-magic-numbers": "off",
+        "no-nested-ternary": "off",
+        "no-plusplus": "off",
+        "no-ternary": "off",
+        "no-undef": "off",
+        "no-undefined": "off",
+        "no-unneeded-ternary": "off",
+        "no-continue": "off",
+        "no-unused-vars": "off",
+        "no-control-regex": "off",
+        "no-useless-assignment": "off",
+        "no-use-before-define": "off",
+        "sort-imports": "off",
+        "define-emits-declaration": "off",
+        "sort-keys": "off",
+        "sort-vars": "off",
+        "no-param-reassign": "off",
+        "curly": "off",
+        "require-await": "off",
+        "id-length": "off",
+        "no-negated-condition": "off",
+        "max-classes-per-file": ["error", 3],
+        "arrow-body-style": "off",
+        "yoda": "off", // Возможно, это нужно бы включить
+        "explicit-function-return-type": "off",
+        "capitalized-comments": "off",
+        "new-cap": "off",
+        "class-methods-use-this": "off",
+        "prefer-destructuring": [
+          "error",
+          {
+            "AssignmentExpression": {
+              "array": false,
+              "object": true
+            }
+          }
+        ],
+        "no-inline-comments": "off",
+        "no-optional-chaining": "off",
+        "max-lines-per-function": [
+          "error",
+          {
+            "max": 800,
+            "skipBlankLines": true,
+            "skipComments": true
+          }
+        ],
+
+        "oxc/no-rest-spread-properties": "off",
+        "oxc/no-async-await": "off",
+
+        "typescript/consistent-indexed-object-style": "off",
+        "typescript/consistent-type-imports": "off",
+        "typescript/consistent-type-definitions": "off",
+        "typescript/no-explicit-any": "off",
+        "typescript/explicit-module-boundary-types": "off",
+        "typescript/prefer-ts-expect-error": "off",
+        "typescript/no-empty-interface": "off",
+        "typescript/no-empty-object-type": [
+          "error",
+          {
+            "allowWithName": "Options$"
+          }
+        ],
+        "vue/max-props": [
+          "error",
+          {
+            "maxProps": 10
+          }
+        ],
+        "vue/define-props-destructuring": "off",
+        "vue/define-props-declaration": "off",
+        "vue/require-typed-ref": "off",
+        "vue/no-v-text-v-html-on-component": "off"
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto w-full relative flex flex-col justify-center">
+  <div class="relative mx-auto flex w-full flex-col justify-center">
     <UCarousel
       ref="carousel"
       v-slot="{ item }"
@@ -8,19 +8,17 @@
       :prev="{ onClick: onClickPrev }"
       :next="{ onClick: onClickNext }"
       class="mx-auto max-w-1/2"
-      @select="onSelect"
-    >
+      @select="onSelect">
       <img :src="item.src" class="border-none" :alt="item.label" />
     </UCarousel>
 
-    <div class="flex justify-between gap-2 pt-4 max-w-xs mx-auto">
+    <div class="mx-auto flex max-w-xs justify-between gap-2 pt-4">
       <div
         v-for="(item, index) in items"
         :key="index"
-        class="size-11 opacity-25 hover:opacity-100 transition-opacity cursor-pointer"
+        class="size-11 cursor-pointer opacity-25 transition-opacity hover:opacity-100"
         :class="{ 'opacity-100': activeIndex === index }"
-        @click="select(index)"
-      >
+        @click="select(index)">
         <UTooltip :text="item.label">
           <img :src="item.src" width="44" height="44" class="rounded-lg" />
         </UTooltip>
@@ -33,49 +31,47 @@
 </template>
 
 <script setup lang="ts">
-
-
 const items = [
   {
-    src: "/images/szam5editor-preferences-spaces.png",
-    label: "Шпации, абзацы, инициалы",
+    src: '/images/szam5editor-preferences-spaces.png',
+    label: 'Шпации, абзацы, инициалы',
   },
-  { src: "/images/szam5editor-preferences-digits.png", label: "Цифры и тире" },
+  { src: '/images/szam5editor-preferences-digits.png', label: 'Цифры и тире' },
   {
-    src: "/images/szam5editor-preferences-withoutbreaks.png",
-    label: "Неотрываемые слова",
-  },
-  {
-    src: "/images/szam5editor-preferences-abreviaturas.png",
-    label: "Аббревиатуры и сокращения",
+    src: '/images/szam5editor-preferences-withoutbreaks.png',
+    label: 'Неотрываемые слова',
   },
   {
-    src: "/images/szam5editor-preferences-rules.png",
-    label: "Пользовательские правила",
+    src: '/images/szam5editor-preferences-abreviaturas.png',
+    label: 'Аббревиатуры и сокращения',
   },
   {
-    src: "/images/szam5editor-preferences-misc.png",
-    label: "Настройки исполнения",
+    src: '/images/szam5editor-preferences-rules.png',
+    label: 'Пользовательские правила',
   },
-];
+  {
+    src: '/images/szam5editor-preferences-misc.png',
+    label: 'Настройки исполнения',
+  },
+]
 
-const carousel = useTemplateRef("carousel");
-const activeIndex = ref(0);
+const carousel = useTemplateRef('carousel')
+const activeIndex = ref(0)
 
 function onClickPrev() {
-  activeIndex.value--;
+  activeIndex.value--
 }
 function onClickNext() {
-  activeIndex.value++;
+  activeIndex.value++
 }
 function onSelect(index: number) {
-  activeIndex.value = index;
+  activeIndex.value = index
 }
 
 function select(index: number) {
-  activeIndex.value = index;
+  activeIndex.value = index
 
-  carousel.value?.emblaApi?.scrollTo(index);
+  carousel.value?.emblaApi?.scrollTo(index)
 }
 </script>
 

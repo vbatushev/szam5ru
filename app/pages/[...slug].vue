@@ -1,44 +1,42 @@
 <script setup lang="ts">
-import type { ContentNavigationItem } from "@nuxt/content";
-import { findPageHeadline } from "@nuxt/content/utils";
+import type { ContentNavigationItem } from '@nuxt/content'
+import { findPageHeadline } from '@nuxt/content/utils'
 
 definePageMeta({
-  layout: "docs",
-});
+  layout: 'docs',
+})
 
-const route = useRoute();
-const navigation = inject<Ref<ContentNavigationItem[]>>("navigation");
+const route = useRoute()
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const { data: page } = await useAsyncData(route.path, () =>
-  queryCollection("docs").path(route.path).first(),
-);
+  queryCollection('docs').path(route.path).first(),
+)
 if (!page.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Страница не найдена",
+    statusMessage: 'Страница не найдена',
     fatal: true,
-  });
+  })
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings("docs", route.path, {
-    fields: ["description"],
-  });
-});
+  return queryCollectionItemSurroundings('docs', route.path, {
+    fields: ['description'],
+  })
+})
 
-const title = page.value.seo?.title || page.value.title;
-const description = page.value.seo?.description || page.value.description;
+const title = page.value.seo?.title || page.value.title
+const description = page.value.seo?.description || page.value.description
 
 useSeoMeta({
   title,
   ogTitle: title,
   description,
   ogDescription: description,
-});
+})
 
-const headline = computed(() =>
-  findPageHeadline(navigation?.value, page.value?.path),
-);
+const headline = computed(() => findPageHeadline(navigation?.value, page.value?.path))
 
 // defineOgImageComponent("Docs", {
 //   headline: headline.value,
@@ -47,17 +45,9 @@ const headline = computed(() =>
 
 <template>
   <UPage v-if="page">
-    <UPageHeader
-      :title="page.title"
-      :description="page.description"
-      :headline="headline"
-    >
+    <UPageHeader :title="page.title" :description="page.description" :headline="headline">
       <template #links>
-        <UButton
-          v-for="(link, index) in page.links"
-          :key="index"
-          v-bind="link"
-        />
+        <UButton v-for="(link, index) in page.links" :key="index" v-bind="link" />
       </template>
     </UPageHeader>
 
