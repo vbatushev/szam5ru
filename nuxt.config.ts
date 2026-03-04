@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     head: {
-      title: 'sZam5 — Adobe InDesign script',
+      title: 'sZam5 — Adobe InDesign script…',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
       link: [{ rel: 'icon', href: '/favicon.ico' }],
       htmlAttrs: {
