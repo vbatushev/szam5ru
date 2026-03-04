@@ -43,6 +43,10 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2026-03-03',
 
+  routeRules: {
+    '/files/vZam.zip': { static: true },
+  },
+
   postcss: {
     plugins: {
       'autoprefixer': {},
